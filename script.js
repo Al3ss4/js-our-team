@@ -15,49 +15,67 @@ function getCard (){
         {
             'nome': 'Angela Caroll',
             'ruolo': 'Chief Editor',
-            'foto': 'angela-caroll-chief-editor.jpg',
+            'foto': 'img/angela-caroll-chief-editor.jpg',
         },
     
         {
             'nome': 'Angela Lopez',
-            'foto': 'Social Media Manager',
-            'ruolo': 'angela-lopez-social-media-manager.jpg',
+            'ruolo': 'Social Media Manager',
+            'foto': 'img/angela-lopez-social-media-manager.jpg',
             
         },
     
         {
             'nome': 'Barbara Ramos',
-            'foto': 'Graphic Designer',
-            'ruolo': 'barbara-ramos-graphic-designer.jpg', 
+            'ruolo': 'Graphic Designer',
+            'foto': 'img/barbara-ramos-graphic-designer.jpg', 
         },
     
         {
             'nome': 'Scott Estrada',
             'ruolo': 'Developer',
-            'foto': 'scott-estrada-developer.jpg',
+            'foto': 'img/scott-estrada-developer.jpg',
         },
     
         {
             'nome': 'Walter Gordon',
             'ruolo': 'Office Manager',
-            'foto': 'walter-gordon-office-manager.jpg',
+            'foto': 'img/walter-gordon-office-manager.jpg',
         },
     
         {
             'nome': 'Wayne Barnett',
             'ruolo': 'Founder & CEO',
-            'foto': 'wayne-barnett-founder-ceo.jpg',
+            'foto': 'img/wayne-barnett-founder-ceo.jpg',
         }
     ];
     
 }
 
 
-//creo funzione per stamapre le carte
+//creo funzione per stampare le carte
 function printCard(){
+    //vado a richiamare la classe dove inserire le carte
+    let container = document.querySelector('.team-container');
+    // richiamo la mia funzione getCard
     let carte= getCard();
+    //ciclo la mia funzione getCard e la inserisco nell'html per ogni carta che troverà
     for (let i=0; i < carte.length; i++){
+        container.innerHTML +=
+        //testo html che il ciclo inserirà
+         `<div class="team-card">
+         <div class="card-image">
+           <img
+             src= "${carte[i]['foto']}"
+             />
+         </div>
+         <div class="card-text">
+           <h3>${carte[i] ['nome']}</h3>
+           <p>${carte[i]['ruolo']}</p>
+         </div> 
+       </div>`;
 
 //console.log(carte[i]);
-    }
-}
+    
+}}
+
