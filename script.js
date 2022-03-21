@@ -1,6 +1,6 @@
 console.log('JS OK!');
 
-printCard();
+printCardArrayIniziale();
 
 //Aggiungere un file js in cui definire *un array di oggetti* che rappresentano i membri del team. Ogni membro ha le informazioni necessarie per stampare la relativa card: *Nome, Ruolo e Foto*.
 
@@ -54,30 +54,35 @@ function getCard (){
 
 
 //creo funzione per stampare le carte
-function printCard(){
-    //vado a richiamare la classe dove inserire le carte
-    let container = document.querySelector('.team-container');
+function printCardArrayIniziale(){
+    //debugger
+
     // richiamo la mia funzione getCard
     let carte= getCard();
-    //ciclo la mia funzione getCard e la inserisco nell'html per ogni carta che troverà
-    for (let i=0; i < carte.length; i++){
-        container.innerHTML +=
-        //testo html che il ciclo inserirà
-         `<div class="team-card">
-         <div class="card-image">
-           <img
-             src= "${carte[i]['foto']}"
-             />
-         </div>
-         <div class="card-text">
-           <h3>${carte[i] ['nome']}</h3>
-           <p>${carte[i]['ruolo']}</p>
-         </div> 
-       </div>`;
 
-//console.log(carte[i]);
+    //funzione printNewCard
+
+
+    // for (let i=0; i < carte.length; i++){
+    //     container.innerHTML +=
+    //     //testo html che il ciclo inserirà
+    //      `<div class="team-card">
+    //      <div class="card-image">
+    //        <img
+    //          src= "${carte[i]['foto']}"
+    //          />
+    //      </div>
+    //      <div class="card-text">
+    //        <h3>${carte[i] ['nome']}</h3>
+    //        <p>${carte[i]['ruolo']}</p>
+    //      </div> 
+    //    </div>`;
+    printNewCard(carte);
+}
+
     
-}}
+
+
 
 
 //Utilizzare gli input presenti nella pagina per permettere all'utente di aggiungere nuovi membri del team: cliccando sul pulsante "add" viene creato un *nuovo oggetto*, il quale viene *inserito nell'array iniziale* e viene stampata una nuova card con tutte le informazioni inserite dall'utente.
@@ -90,19 +95,42 @@ btnAdd.addEventListener('click', function(){
     const nuovoNome = document.getElementById("name");
     const nuovoRuolo = document.getElementById("role");
     const nuovaFoto = document.getElementById("image");
+    let teamNewCard = getCard();
 
-
-    const newNameMember = nuovoNome.value;
-    const newRoleMember = nuovoRuolo.value;
-    const newImgMember = nuovaFoto.value;
+    let newNameMember = nuovoNome.value;
+    let newRoleMember = nuovoRuolo.value;
+    let newImgMember = nuovaFoto.value;
 
 // pusho i nuovi elementi nell'array iniziale 
-    teamCard.push({
+    teamNewCard.push({
         'nome': newNameMember,
         'ruolo': newRoleMember,
         'foto': newImgMember,
     });
     //debugger
-    console.log(teamCard);
+    //console.log(teamCard);
     
+    printNewCard(teamNewCard)
+
 });
+
+
+//funzione per stampare ruolo nome e immagine nell'html
+function printNewCard(teamNewCard){
+    let container = document.querySelector('.team-container');
+    for (let i=0; i < teamNewCard.length; i++){
+        container.innerHTML +=
+        //testo html che il ciclo inserirà
+         `<div class="team-card">
+         <div class="card-image">
+           <img
+             src= "${teamNewCard[i]['foto']}"
+             />
+         </div>
+         <div class="card-text">
+           <h3>${teamNewCard[i] ['nome']}</h3>
+           <p>${teamNewCard[i]['ruolo']}</p>
+         </div> 
+       </div>`;
+}
+}
