@@ -63,7 +63,6 @@ function printCardArrayIniziale(){
     printNewCard(carte);
 }
 
-    
 
 
 
@@ -74,26 +73,10 @@ function printCardArrayIniziale(){
 const btnAdd = document.getElementById("addMemberButton");
 //creo un evento con il click 
 btnAdd.addEventListener('click', function(){
-   //richiamo i miei id per nome ruolo e immagine e aggiungo il .value
-    let nuovoNome = document.getElementById("name").value;
-    let nuovoRuolo = document.getElementById("role").value;
-    let nuovaFoto = document.getElementById("image").value;
-    let teamNewCard = getCard();
-//commentato, soluzione più rapida nel .value riga 95-96-97
-    // let newNameMember = nuovoNome.value;
-    // let newRoleMember = nuovoRuolo.value;
-    // let newImgMember = nuovaFoto.value;
-
-// pusho i nuovi elementi nell'array iniziale 
-    teamNewCard.push({
-        'nome': nuovoNome,
-        'ruolo': nuovoRuolo,
-        'foto': nuovaFoto,
-    });
-    //debugger
-    //console.log(teamCard);
-    
-    printNewCard(teamNewCard)
+    //mi richiamo la funzione che aggiorna l'array iniziale
+    let setNewCard = setCard();
+    //funciont che stampa le modifiche all'array iniziale
+    printNewCard(setNewCard);
 
 });
 
@@ -101,7 +84,7 @@ btnAdd.addEventListener('click', function(){
 //funzione per stampare ruolo nome e immagine nell'html
 function printNewCard(teamNewCard){
     let container = document.querySelector('.team-container');
-    container.innerHTML="";
+    container.innerHTML= "";
     for (let i=0; i < teamNewCard.length; i++){
         
         container.innerHTML +=
@@ -118,4 +101,28 @@ function printNewCard(teamNewCard){
          </div> 
        </div>`;
 }
+}
+
+
+//function per andare a modificare l'array iniziale 
+function setCard(){
+       //richiamo i miei id per nome ruolo e immagine e aggiungo il .value
+       let nuovoNome = document.getElementById("name").value;
+       let nuovoRuolo = document.getElementById("role").value;
+       let nuovaFoto = document.getElementById("image").value;
+       let teamNewCard = getCard();
+   //commentato, soluzione più rapida nel .value riga 95-96-97
+       // let newNameMember = nuovoNome.value;
+       // let newRoleMember = nuovoRuolo.value;
+       // let newImgMember = nuovaFoto.value;
+   
+   // pusho i nuovi elementi nell'array iniziale 
+       teamNewCard.push({
+           'nome': nuovoNome,
+           'ruolo': nuovoRuolo,
+           'foto': nuovaFoto,
+       });
+       //debugger
+       //console.log(teamCard);
+       return teamNewCard;
 }
