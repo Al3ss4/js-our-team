@@ -82,7 +82,7 @@ function printCard(){
 
 //Utilizzare gli input presenti nella pagina per permettere all'utente di aggiungere nuovi membri del team: cliccando sul pulsante "add" viene creato un *nuovo oggetto*, il quale viene *inserito nell'array iniziale* e viene stampata una nuova card con tutte le informazioni inserite dall'utente.
 
-//richiamo l'id 
+//richiamo l'id del btn "add"
 const btnAdd = document.getElementById("addMemberButton");
 //creo un evento con il click 
 btnAdd.addEventListener('click', function(){
