@@ -59,24 +59,7 @@ function printCardArrayIniziale(){
 
     // richiamo la mia funzione getCard
     let carte= getCard();
-
-    //funzione printNewCard
-
-
-    // for (let i=0; i < carte.length; i++){
-    //     container.innerHTML +=
-    //     //testo html che il ciclo inserirà
-    //      `<div class="team-card">
-    //      <div class="card-image">
-    //        <img
-    //          src= "${carte[i]['foto']}"
-    //          />
-    //      </div>
-    //      <div class="card-text">
-    //        <h3>${carte[i] ['nome']}</h3>
-    //        <p>${carte[i]['ruolo']}</p>
-    //      </div> 
-    //    </div>`;
+// function per stampare le carte sull'html
     printNewCard(carte);
 }
 
