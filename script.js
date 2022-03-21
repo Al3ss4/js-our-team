@@ -79,3 +79,30 @@ function printCard(){
     
 }}
 
+
+//Utilizzare gli input presenti nella pagina per permettere all'utente di aggiungere nuovi membri del team: cliccando sul pulsante "add" viene creato un *nuovo oggetto*, il quale viene *inserito nell'array iniziale* e viene stampata una nuova card con tutte le informazioni inserite dall'utente.
+
+//richiamo l'id 
+const btnAdd = document.getElementById("addMemberButton");
+//creo un evento con il click 
+btnAdd.addEventListener('click', function(){
+   //richiamo i miei id per nome ruolo e immagine
+    const nuovoNome = document.getElementById("name");
+    const nuovoRuolo = document.getElementById("role");
+    const nuovaFoto = document.getElementById("image");
+
+
+    const newNameMember = nuovoNome.value;
+    const newRoleMember = nuovoRuolo.value;
+    const newImgMember = nuovaFoto.value;
+
+// pusho i nuovi elementi nell'array iniziale 
+    teamCard.push({
+        'nome': newNameMember,
+        'ruolo': newRoleMember,
+        'foto': newImgMember,
+    });
+    //debugger
+    console.log(teamCard);
+    
+});
